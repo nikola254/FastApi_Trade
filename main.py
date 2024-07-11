@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from typing import List, Optional
 from pydantic import BaseModel, Field
 from datetime import datetime
@@ -32,6 +32,16 @@ app.include_router(
     prefix="/auth",
     tags=["auth"],
 )
+
+current_user = fastapi_users.current_user()
+
+@app.get("/protected-route")
+def protected_route(user: User = Depends(current_user)):
+    return f"Hello, {user.username}"
+
+@app.get("/unprotected-route")
+def unprotected_route():
+    return f"Hello, anonym"
 
 fake_users = [
     {"id": 1, "role": "admin", "name": "Bob"},

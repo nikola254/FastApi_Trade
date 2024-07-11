@@ -1,15 +1,10 @@
 Fast API
-
 uvicorn main:app --reload --host 8100
 
 
-pip instal sqlalchemy alembic psycopg2 fastapi  pydant
+pip install sqlalchemy alembic psycopg2 fastapi  pydantic uvicorn
 
-alembic init migrations
-
-alembic revision --autogenerate -m "DataBase creation"
-
-
+файл
 alembic.ini
 sqlalchemy.url = postgresql://%(DB_USER)s:%(DB_PASS)s@%(DB_HOST)s:%(DB_PORT)s/%(DB_NAME)s
 
@@ -50,6 +45,15 @@ config.set_section_option(section, "DB_PORT", DB_PORT)
 
 
 
-сделаем миграцию 
+выполняем миграцию 
+
+alembic init migrations
+
+alembic revision --autogenerate -m "DataBase creation"
 
 alembic upgrade ce709805e0c9 и указываем конкретный хеш
+alembic upgrade head - все хеши вып
+
+pip install "fastapi-users[sqlalchemy]"
+pip install asyncpg
+

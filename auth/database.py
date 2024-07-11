@@ -6,7 +6,6 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_asyn
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy import MetaData, String, Integer, TIMESTAMP, ForeignKey, Column, Table, JSON, Boolean
 from datetime import datetime
-
 from config import DB_PORT, DB_NAME, DB_HOST, DB_USER, DB_PASS
 from models.models import role
 
