@@ -57,3 +57,10 @@ alembic upgrade head - все хеши вып
 pip install "fastapi-users[sqlalchemy]"
 pip install asyncpg
 
+Работа с гит 
+загрузить изменения 
+git pull origin master
+добавить изменения
+git add ...
+git commit -m "Что поменял" 
+git push --force origin master
